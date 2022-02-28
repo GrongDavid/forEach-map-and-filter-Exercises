@@ -7,7 +7,12 @@ Examples:
 
 */
 function doubleValues(arr){
-    
+    let array = [];
+    arr.forEach(function(value){
+        array.push(value * 2);
+    });
+
+    return array;
 }
 
 /*
@@ -19,7 +24,15 @@ Examples:
 
 */
 function onlyEvenValues(arr){
-    
+    let array = [];
+    arr.forEach(function(value){
+        if(value % 2 === 0){
+            array.push(value);
+        }
+    });
+    console.log(doubleValues([1, 2, 3]));
+
+    return array;
 }
 
 /*
@@ -31,7 +44,12 @@ Examples:
 
 */
 function showFirstAndLast(arr){
-    
+    let array = [];
+    arr.forEach(function(value){
+        array.push(value[0] + value[value.length - 1]);
+    });
+
+    return array;
 }
 
 /*
@@ -44,7 +62,10 @@ Examples:
 
 */
 function addKeyAndValue(arr,key,value){
-    
+    arr.forEach(function(val){
+        val[key] = value;
+    });
+    return arr;
 }
 
 /*
@@ -58,7 +79,20 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 function vowelCount(str){
-   
+    let vowelObj = {};
+    let vowels = "aeiou";
+
+    str.forEach(function(value){
+        value.toLowerCase();
+        if(value.indexOf(vowels) !== -1){
+            if(value in vowelObj){
+                vowelObj[value]++;
+            }
+            else{
+                vowelObj[value] = 1;
+            }
+        }
+    });
 }
 
 /*
@@ -69,7 +103,11 @@ Examples:
     doubleValuesWithMap([1,-2,-3]) // [2,-4,-6]
 */
 
-function doubleValuesWithMap(arr) {}
+function doubleValuesWithMap(arr) {
+    arr.map(function(value){
+        return value * 2;
+    });
+}
 
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
@@ -80,7 +118,9 @@ Examples:
 */
 
 function valTimesIndex(arr){
-    
+    arr.map(function(value, index){
+        return value * index;
+    })
 }
 
 /*
@@ -91,7 +131,9 @@ Examples:
 */
 
 function extractKey(arr, key){
-    
+    arr.map(function(value){
+        return value[key];
+    })
 }
 
 /*
